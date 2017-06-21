@@ -1,0 +1,77 @@
+let note = "C#*2";
+let ele = note.split('*');
+
+console.log(ele);
+
+
+
+
+
+if(noteObj.beats === undefined){
+  noteObj.beats = 1;
+}
+
+
+
+on the first question... there's a certain beauty in coding, akin to mathematics, but a lot more accessible. There's the pleasure in figuring something out after hours of frustration.
+
+//let note = "C#*2"; //test value for parseNote
+let songsample = 'A C#*2 A C B C*2'; //test value for parseSong
+/* the error?
+let noteObj = {
+  pitch:'',
+  beats:1
+};
+*/
+let ele = [];
+let arrNotes = [];
+// let songArr = [];
+
+
+
+parseNote = function(note){
+  let noteObj = {};
+  ele = note.split('*');
+  if(ele[1]){
+    ele[1]=parseInt(ele[1]);
+  }else{
+    ele[1]=1;
+  }
+
+    noteObj.pitch = ele[0];
+    noteObj.beats = ele[1];
+    return noteObj;
+  }
+
+  //parseNote(sampleNote);
+//console.log(JSON.stringify(parseNote(note)));
+
+
+parseSong = function(song){
+
+  arrNotes = song.split(' ');
+  let songArr = [];
+
+  for(i=0;i<=arrNotes.length-1;i++){
+    let oneNote = null;
+    //console.log('arrNotes: '+arrNotes[i]);
+    oneNote = parseNote(arrNotes[i]);
+
+    //console.log('oneNote:  ' + JSON.stringify(oneNote));
+
+    songArr.push(oneNote);
+    //console.log('songArrEle:  ' + JSON.stringify(songArr));
+    //console.log(' ');
+
+  }
+  //console.log('songArrtoStr: ' +(songArr).toString());
+  //console.log('songArr:  ' + JSON.stringify(songArr));
+  return songArr;
+}
+
+parseSong(songsample);
+
+--------------sample songs
+'A C#*2 A C B C*2'
+'G A C B*3 A#*2'
+'B D B D A*2 B#'
